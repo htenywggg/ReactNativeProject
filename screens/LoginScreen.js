@@ -11,7 +11,7 @@ import {Container, Content, Header, Form, Input, Item, Button, Label } from 'nat
 
 class LoginScreen extends Component {
 
-static navigationOptions = {header: 'Header'}
+static navigationOptions = { header: null}
 
 
   constructor(props){
@@ -75,8 +75,9 @@ static navigationOptions = {header: 'Header'}
     return (
       <Container style={styles.container}>
         <Form>
+        <Text style={styles.signInTitle}>SiGN iN</Text>
           <Item floatingLabel>
-          <Label>Email</Label>
+          <Label style={{color: 'mistyrose',marginBottom: '10%'}}>Email Address</Label>
           <Input
             autoCorrect={false}
             autoCapitalize="none"
@@ -85,7 +86,7 @@ static navigationOptions = {header: 'Header'}
           </Item>
 
           <Item floatingLabel>
-          <Label>Password</Label>
+          <Label style={{color: 'mistyrose',marginBottom: '10%'}}>Password</Label>
           <Input
             secureTextEntry={true}
             autoCorrect={false}
@@ -94,24 +95,22 @@ static navigationOptions = {header: 'Header'}
             />
           </Item>
 
-          <Button style={{marginTop:10}}
+          <Button style={styles.buttonLogIn}
             full
             rounded
             success
             onPress={() => this.loginUser(this.state.email, this.state.password)}
           >
-          <Text style={{color: 'white'}}> Login </Text>
+          <Text style={{color: 'tomato'}}> Sign In </Text>
 
           </Button>
 
-           <Button style={{marginTop:10}}
+           <Button style={styles.buttonSignUp}
             full
             rounded
-            primary
-            bordered
             onPress={() => this.props.navigation.navigate('SignUpScreen')}
           >
-          <Text style={{color: 'white'}}> Sign Up </Text>
+          <Text style={{color: 'tomato'}}> Create an Account </Text>
 
           </Button>
 
@@ -123,12 +122,30 @@ static navigationOptions = {header: 'Header'}
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    backgroundColor: 'mistyrose',
-    justifyContent: 'center',
-    padding: 10
+    backgroundColor: 'tomato',
+    padding: 40
   },
+  buttonLogIn: {
+  	marginTop: 20,
+  	marginLeft: 70,
+  	marginRight: 70,
+  	backgroundColor: 'whitesmoke'
+
+  },
+  buttonSignUp: { 
+    marginTop: 10,	
+  	marginLeft: 70,
+  	marginRight: 70,
+  	backgroundColor: 'whitesmoke'
+  },
+  signInTitle: {
+  	marginTop: 20,
+  	fontSize: 50,
+  	textAlign: 'center'
+  }
 });
 
 export default LoginScreen;

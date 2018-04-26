@@ -79,8 +79,9 @@ static navigationOptions = { header: 'Header'};
     return (
       <Container style={styles.container}>
         <Form>
+        <Text style={styles.signUpTitle}>REGiSTER</Text>
         <Item floatingLabel>
-          <Label>Full Name</Label>
+          <Label style={styles.formlabel}>Full Name</Label>
           <Input
             autoCorrect={false}
             autoCapitalize="none"
@@ -89,7 +90,7 @@ static navigationOptions = { header: 'Header'};
           </Item>
 
           <Item floatingLabel>
-          <Label>Email</Label>
+          <Label style={styles.formlabel}>Email Address</Label>
           <Input
             autoCorrect={false}
             autoCapitalize="none"
@@ -98,7 +99,7 @@ static navigationOptions = { header: 'Header'};
           </Item>
 
           <Item floatingLabel>
-          <Label>Password</Label>
+          <Label style={styles.formlabel}>Password</Label>
           <Input
             secureTextEntry={true}
             autoCorrect={false}
@@ -107,23 +108,21 @@ static navigationOptions = { header: 'Header'};
             />
           </Item>
 
-           <Button style={{marginTop:10}}
+           <Button style={styles.buttonSignUp}
             full
             rounded
             success
             onPress={() => this.signUpUser(this.state.email, this.state.password)}
           >
-          <Text style={{color: 'white'}}> Sign Up </Text>
+          <Text style={{color: 'tomato'}}> Sign Up </Text>
           </Button>
 
-          <Button style={{marginTop:10}}
+          <Button style={styles.buttonLogIn}
             full
             rounded
-            primary
-            bordered
             onPress={() => this.props.navigation.navigate('LoginScreen')}
           >
-          <Text style={{color: 'white'}}> Login </Text>
+          <Text style={{color: 'tomato'}}> Login </Text>
 
           </Button>
 
@@ -136,10 +135,30 @@ static navigationOptions = { header: 'Header'};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'mistyrose',
-    justifyContent: 'center',
-    padding: 10
+    backgroundColor: 'tomato',
+    padding: 40
   },
+  formlabel: {
+  	color: 'mistyrose'
+  },
+   buttonSignUp: { 
+    marginTop: 20,	
+  	marginLeft: 70,
+  	marginRight: 70,
+  	backgroundColor: 'whitesmoke'
+  },
+  buttonLogIn: {
+  	marginTop: 20,
+  	marginLeft: 70,
+  	marginRight: 70,
+  	backgroundColor: 'whitesmoke'
+
+  },
+   signUpTitle: {
+  	marginTop: 30,
+  	fontSize: 50,
+  	textAlign: 'center'
+  }
 });
 
 export default SignUpScreen;
